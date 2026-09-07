@@ -14,7 +14,20 @@
 		<style>
 			#header .logo { display: none; }
 			#banner .inner { padding-bottom: 0; }
-			#banner header.major { margin-bottom: 0; }
+			#banner header.major { margin-bottom: 1.25em; }
+			#banner .homepage-tagline {
+				margin: 0;
+				font-size: 1.05em;
+				font-weight: 600;
+				letter-spacing: 0.06em;
+				white-space: nowrap;
+			}
+			@media screen and (max-width: 980px) {
+				#banner .homepage-tagline { font-size: 0.9em; }
+			}
+			@media screen and (max-width: 736px) {
+				#banner .homepage-tagline { white-space: normal; font-size: 0.85em; line-height: 1.6; }
+			}
 			#banner {
 				background-image: linear-gradient(rgba(36, 41, 67, 0.68), rgba(36, 41, 67, 0.68)), url("home-banner.jpg") !important;
 				background-position: center center !important;
@@ -47,6 +60,7 @@
 					<header class="major">
 						<h1>Nishan Ghimire</h1>
 					</header>
+					<p class="homepage-tagline">Vancouver Based Digital Marketing and Communication Professional with 3+ years experience</p>
 				</div>
 			</section>
 
