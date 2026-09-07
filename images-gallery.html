@@ -12,23 +12,91 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			.gallery-grid {
-				display: grid;
-				grid-template-columns: repeat(3, minmax(0, 1fr));
-				gap: 1.5em;
-				padding-top: 1em;
+			.slideshow-wrap {
+				max-width: 1120px;
+				margin: 1.5em auto 0;
 			}
-			.gallery-grid a {
-				display: block;
-				border: 0;
+			.slide-stage {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 62vh;
+				padding: 1.25em 5em;
+				background: rgba(0, 0, 0, 0.18);
+				border: solid 1px rgba(255, 255, 255, 0.12);
 			}
-			.gallery-grid img {
-				display: block;
+			.slide {
+				display: none;
 				width: 100%;
-				height: auto;
+				text-align: center;
 			}
-			@media screen and (max-width: 980px) {
-				.gallery-grid { grid-template-columns: 1fr; }
+			.slide.active { display: block; }
+			.slide a { border: 0; }
+			.slide img {
+				display: block;
+				max-width: 100%;
+				max-height: 68vh;
+				width: auto;
+				height: auto;
+				margin: 0 auto;
+				object-fit: contain;
+				box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.28);
+			}
+			.slide-nav {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 2.6em;
+				height: 2.6em;
+				padding: 0;
+				border-radius: 100%;
+				font-size: 1.35em;
+				line-height: 2.45em;
+				text-align: center;
+				z-index: 2;
+				background: rgba(20, 25, 45, 0.75);
+			}
+			.slide-nav.prev { left: 1em; }
+			.slide-nav.next { right: 1em; }
+			.slide-controls {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1.1em;
+				padding-top: 1.2em;
+			}
+			.slide-counter {
+				font-size: 0.9em;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+			}
+			.dots {
+				display: flex;
+				gap: 0.55em;
+			}
+			.dot {
+				width: 0.65em;
+				height: 0.65em;
+				border-radius: 50%;
+				background: rgba(255,255,255,0.3);
+				cursor: pointer;
+			}
+			.dot.active { background: #ffffff; }
+			@media screen and (max-width: 736px) {
+				.slide-stage {
+					min-height: 50vh;
+					padding: 1em 3.4em;
+				}
+				.slide img { max-height: 58vh; }
+				.slide-nav {
+					width: 2.2em;
+					height: 2.2em;
+					font-size: 1.1em;
+					line-height: 2.05em;
+				}
+				.slide-nav.prev { left: 0.55em; }
+				.slide-nav.next { right: 0.55em; }
 			}
 		</style>
 	</head>
@@ -52,10 +120,38 @@
 						<header class="major">
 							<h1>Collection of Images</h1>
 						</header>
-						<div class="gallery-grid">
-							<a href="gran-turismo.png" target="_blank" rel="noopener"><img src="gran-turismo.png" alt="Sony AI Gran Turismo visual" /></a>
-							<a href="azure-xamarin.png" target="_blank" rel="noopener"><img src="azure-xamarin.png" alt="Azure Xamarin visual" /></a>
-							<a href="ai-hydropower.png" target="_blank" rel="noopener"><img src="ai-hydropower.png" alt="AI hydropower visual" /></a>
+
+						<div class="slideshow-wrap" aria-label="Image slideshow">
+							<div class="slide-stage">
+								<button class="slide-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+
+								<div class="slide active">
+									<a href="gran-turismo.png" target="_blank" rel="noopener">
+										<img src="gran-turismo.png" alt="Sony AI Gran Turismo visual" />
+									</a>
+								</div>
+								<div class="slide">
+									<a href="azure-xamarin.png" target="_blank" rel="noopener">
+										<img src="azure-xamarin.png" alt="Azure Xamarin visual" />
+									</a>
+								</div>
+								<div class="slide">
+									<a href="ai-hydropower.png" target="_blank" rel="noopener">
+										<img src="ai-hydropower.png" alt="AI hydropower visual" />
+									</a>
+								</div>
+
+								<button class="slide-nav next" type="button" aria-label="Next image">&#10095;</button>
+							</div>
+
+							<div class="slide-controls">
+								<span class="slide-counter" aria-live="polite">1 / 3</span>
+								<div class="dots" aria-label="Choose image">
+									<span class="dot active" data-slide="0" role="button" tabindex="0" aria-label="Show image 1"></span>
+									<span class="dot" data-slide="1" role="button" tabindex="0" aria-label="Show image 2"></span>
+									<span class="dot" data-slide="2" role="button" tabindex="0" aria-label="Show image 3"></span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -69,5 +165,42 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+			(function () {
+				var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+				var dots = Array.prototype.slice.call(document.querySelectorAll('.dot'));
+				var counter = document.querySelector('.slide-counter');
+				var current = 0;
+
+				function showSlide(index) {
+					current = (index + slides.length) % slides.length;
+					slides.forEach(function (slide, i) {
+						slide.classList.toggle('active', i === current);
+					});
+					dots.forEach(function (dot, i) {
+						dot.classList.toggle('active', i === current);
+					});
+					counter.textContent = (current + 1) + ' / ' + slides.length;
+				}
+
+				document.querySelector('.prev').addEventListener('click', function () { showSlide(current - 1); });
+				document.querySelector('.next').addEventListener('click', function () { showSlide(current + 1); });
+
+				dots.forEach(function (dot) {
+					dot.addEventListener('click', function () { showSlide(parseInt(dot.getAttribute('data-slide'), 10)); });
+					dot.addEventListener('keydown', function (event) {
+						if (event.key === 'Enter' || event.key === ' ') {
+							event.preventDefault();
+							showSlide(parseInt(dot.getAttribute('data-slide'), 10));
+						}
+					});
+				});
+
+				document.addEventListener('keydown', function (event) {
+					if (event.key === 'ArrowLeft') showSlide(current - 1);
+					if (event.key === 'ArrowRight') showSlide(current + 1);
+				});
+			})();
+		</script>
 	</body>
 </html>
