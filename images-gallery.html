@@ -13,21 +13,25 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			.slideshow-wrap {
-				max-width: 1120px;
+				max-width: 1180px;
 				margin: 1.5em auto 0;
 			}
 			.slide-stage {
-				position: relative;
-				display: flex;
+				display: grid;
+				grid-template-columns: 3.75em minmax(0, 900px) 3.75em;
+				grid-template-rows: 1fr;
+				gap: 1.4em;
 				align-items: center;
 				justify-content: center;
 				min-height: 62vh;
-				padding: 1.25em 5em;
+				padding: 2em 1.5em;
 				background: rgba(0, 0, 0, 0.18);
 				border: solid 1px rgba(255, 255, 255, 0.12);
 			}
 			.slide {
 				display: none;
+				grid-column: 2;
+				grid-row: 1;
 				width: 100%;
 				text-align: center;
 			}
@@ -44,21 +48,22 @@
 				box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.28);
 			}
 			.slide-nav {
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				width: 2.6em;
-				height: 2.6em;
+				position: static;
+				transform: none;
+				width: 3.1em;
+				height: 3.1em;
 				padding: 0;
 				border-radius: 100%;
-				font-size: 1.35em;
-				line-height: 2.45em;
+				font-size: 1.2em;
+				line-height: 3em;
 				text-align: center;
 				z-index: 2;
 				background: rgba(20, 25, 45, 0.75);
+				justify-self: center;
+				align-self: center;
 			}
-			.slide-nav.prev { left: 1em; }
-			.slide-nav.next { right: 1em; }
+			.slide-nav.prev { grid-column: 1; grid-row: 1; }
+			.slide-nav.next { grid-column: 3; grid-row: 1; }
 			.slide-controls {
 				display: flex;
 				align-items: center;
@@ -85,18 +90,18 @@
 			.dot.active { background: #ffffff; }
 			@media screen and (max-width: 736px) {
 				.slide-stage {
+					grid-template-columns: 2.7em minmax(0, 1fr) 2.7em;
+					gap: 0.55em;
 					min-height: 50vh;
-					padding: 1em 3.4em;
+					padding: 1em 0.45em;
 				}
 				.slide img { max-height: 58vh; }
 				.slide-nav {
-					width: 2.2em;
-					height: 2.2em;
-					font-size: 1.1em;
-					line-height: 2.05em;
+					width: 2.35em;
+					height: 2.35em;
+					font-size: 1em;
+					line-height: 2.2em;
 				}
-				.slide-nav.prev { left: 0.55em; }
-				.slide-nav.next { right: 0.55em; }
 			}
 		</style>
 	</head>

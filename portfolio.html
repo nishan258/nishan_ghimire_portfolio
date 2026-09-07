@@ -7,15 +7,60 @@
 <html>
 	<head>
 		<title>Portfolio | Nishan Ghimire</title>
+		<!-- v12 horizontal portfolio layout -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	
 		<style>
-			/* Keep Forty's image overlay from sitting on top of the video controls. */
-			.spotlights > section > .video-panel:before { pointer-events: none !important; display: none !important; }
-			.spotlights > section > .video-panel video { pointer-events: auto; }
+			#portfolio-list { padding: 2.5em 0 5em 0; }
+			.portfolio-row {
+				display: grid;
+				grid-template-columns: 20em minmax(0, 1fr);
+				gap: 2.5em;
+				align-items: center;
+				padding: 2em 0;
+				border-bottom: solid 1px rgba(212, 212, 255, 0.12);
+			}
+			.portfolio-row:first-child { padding-top: 0; }
+			.portfolio-row:last-child { border-bottom: 0; }
+			.portfolio-preview {
+				display: block;
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				overflow: hidden;
+				border-radius: 4px;
+				background: #1f243d;
+				margin: 0;
+			}
+			.portfolio-preview img,
+			.portfolio-preview video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+			.portfolio-copy { align-self: center; }
+			.portfolio-label {
+				font-size: 0.75em;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				opacity: 0.62;
+				margin: 0 0 1.1em 0;
+			}
+			.portfolio-copy h2 {
+				font-size: 1.65em;
+				margin: 0 0 1.15em 0;
+			}
+			.portfolio-copy .button { margin: 0; }
+			@media screen and (max-width: 980px) {
+				.portfolio-row { grid-template-columns: 15em minmax(0, 1fr); gap: 2em; }
+			}
+			@media screen and (max-width: 736px) {
+				#portfolio-list { padding-top: 1.5em; }
+				.portfolio-row { grid-template-columns: 1fr; gap: 1.4em; padding: 2em 0; }
+				.portfolio-preview { max-width: 100%; aspect-ratio: 4 / 3; }
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -24,9 +69,7 @@
 
 			<header id="header" class="alt style2">
 				<a href="index.html" class="logo"><strong>Nishan Ghimire</strong></a>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
+				<nav><a href="#menu">Menu</a></nav>
 			</header>
 
 			<nav id="menu">
@@ -38,61 +81,53 @@
 
 			<section id="banner" class="style2">
 				<div class="inner">
-					<span class="image">
-						<img src="images/pic07.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h1>Portfolio</h1>
-					</header>
+					<span class="image"><img src="images/pic07.jpg" alt="" /></span>
+					<header class="major"><h1>Portfolio</h1></header>
 				</div>
 			</section>
 
 			<div id="main">
+				<section id="portfolio-list">
+					<div class="inner">
 
-				<section id="two" class="spotlights">
-					<section>
-						<a href="images-gallery.html" class="image">
-							<img src="gran-turismo.png" alt="Collection of Images" data-position="center center" />
-						</a>
-						<div class="content">
-							<div class="inner">
-								<header class="major">
-									<h3><a href="images-gallery.html">Collection of Images</a></h3>
-								</header>
+						<article class="portfolio-row">
+							<a class="portfolio-preview" href="images-gallery.html" aria-label="Open image gallery">
+								<img src="gran-turismo.png" alt="Preview of image collection" />
+							</a>
+							<div class="portfolio-copy">
+								<p class="portfolio-label">Visual Work</p>
+								<h2>Collection of Images</h2>
+								<a href="images-gallery.html" class="button small">View Gallery</a>
 							</div>
-						</div>
-					</section>
+						</article>
 
-					<section>
-						<div class="image video-panel" style="display:flex; align-items:center; background:#242943;">
-							<video controls playsinline preload="auto" style="width:100%; height:100%; max-height:30em; object-fit:contain; background:#000; position:relative; z-index:2;">
-								<source src="qbd-approach.mp4" type="video/mp4" />
-								Your browser does not support the video tag.
-							</video>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<header class="major">
-									<h3>Collection of Videos</h3>
-								</header>
+						<article class="portfolio-row">
+							<div class="portfolio-preview">
+								<video id="portfolio-video" controls playsinline preload="metadata">
+									<source src="qbd-approach.mp4" type="video/mp4" />
+									Your browser does not support the video tag.
+								</video>
 							</div>
-						</div>
-					</section>
+							<div class="portfolio-copy">
+								<p class="portfolio-label">Video Work</p>
+								<h2>Collection of Videos</h2>
+								<a href="qbd-approach.mp4" class="button small">Watch Video</a>
+							</div>
+						</article>
 
-					<section>
-						<a href="#" class="image">
-							<img src="images/pic10.jpg" alt="Collection of Writing" data-position="25% 25%" />
-						</a>
-						<div class="content">
-							<div class="inner">
-								<header class="major">
-									<h3>Collection of Writing</h3>
-								</header>
+						<article class="portfolio-row">
+							<div class="portfolio-preview">
+								<img src="images/pic10.jpg" alt="Preview of writing collection" />
 							</div>
-						</div>
-					</section>
+							<div class="portfolio-copy">
+								<p class="portfolio-label">Writing</p>
+								<h2>Collection of Writing</h2>
+								<a href="#" class="button small">View Writing</a>
+							</div>
+						</article>
+
+					</div>
 				</section>
-
 			</div>
 
 		</div>
