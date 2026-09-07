@@ -50,20 +50,26 @@
 			.slide-nav {
 				position: static;
 				transform: none;
-				width: 3.1em;
-				height: 3.1em;
+				width: 2.8em;
+				height: 2.8em;
 				padding: 0;
 				border-radius: 100%;
 				font-size: 1.2em;
-				line-height: 3em;
+				line-height: 2.65em;
 				text-align: center;
 				z-index: 2;
 				background: rgba(20, 25, 45, 0.75);
 				justify-self: center;
 				align-self: center;
 			}
+			.slide-nav::before,
+			.slide-nav::after {
+				content: none !important;
+				display: none !important;
+				background: none !important;
+			}
 			.slide-nav.prev { grid-column: 1; grid-row: 1; }
-			.slide-nav.next { grid-column: 3; grid-row: 1; }
+			.slide-nav.next-slide { grid-column: 3; grid-row: 1; }
 			.slide-controls {
 				display: flex;
 				align-items: center;
@@ -146,7 +152,7 @@
 									</a>
 								</div>
 
-								<button class="slide-nav next" type="button" aria-label="Next image">&#10095;</button>
+								<button class="slide-nav next-slide" type="button" aria-label="Next image">&#10095;</button>
 							</div>
 
 							<div class="slide-controls">
@@ -189,7 +195,7 @@
 				}
 
 				document.querySelector('.prev').addEventListener('click', function () { showSlide(current - 1); });
-				document.querySelector('.next').addEventListener('click', function () { showSlide(current + 1); });
+				document.querySelector('.next-slide').addEventListener('click', function () { showSlide(current + 1); });
 
 				dots.forEach(function (dot) {
 					dot.addEventListener('click', function () { showSlide(parseInt(dot.getAttribute('data-slide'), 10)); });
