@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Image Gallery | Nishan Ghimire</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.gallery-grid {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 1.5em;
+				padding-top: 1em;
+			}
+			.gallery-grid a {
+				display: block;
+				border: 0;
+			}
+			.gallery-grid img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+			@media screen and (max-width: 980px) {
+				.gallery-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Nishan Ghimire</strong></a>
+				<nav><a href="#menu">Menu</a></nav>
+			</header>
+
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="resume.html">Resume</a></li>
+				</ul>
+			</nav>
+
+			<div id="main" class="alt">
+				<section id="one">
+					<div class="inner">
+						<header class="major">
+							<h1>Collection of Images</h1>
+						</header>
+						<div class="gallery-grid">
+							<a href="gran-turismo.png" target="_blank" rel="noopener"><img src="gran-turismo.png" alt="Sony AI Gran Turismo visual" /></a>
+							<a href="azure-xamarin.png" target="_blank" rel="noopener"><img src="azure-xamarin.png" alt="Azure Xamarin visual" /></a>
+							<a href="ai-hydropower.png" target="_blank" rel="noopener"><img src="ai-hydropower.png" alt="AI hydropower visual" /></a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
