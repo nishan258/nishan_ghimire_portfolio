@@ -4,10 +4,45 @@
   <title>Resume - Nishan Ghimire</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <meta http-equiv="refresh" content="0; url=sample-resume.pdf" />
-  <script>window.location.replace('sample-resume.pdf');</script>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    #header .logo { display: none; }
+    #main > .inner { max-width: none; padding-left: 4em; padding-right: 4em; }
+    .resume-viewer { width: 100%; height: calc(100vh - 13em); min-height: 700px; border: 0; display: block; }
+    @media screen and (max-width: 736px) {
+      #main > .inner { padding-left: 1.5em; padding-right: 1.5em; }
+      .resume-viewer { height: 75vh; min-height: 500px; }
+    }
+  </style>
 </head>
-<body>
-  <p>Opening resume… <a href="sample-resume.pdf">Click here if it does not open automatically.</a></p>
+<body class="is-preload">
+<div id="wrapper">
+  <header id="header" class="alt style2">
+    <a href="index.html" class="logo"><strong>Nishan Ghimire</strong></a>
+    <nav><a href="#menu">Menu</a></nav>
+  </header>
+
+  <nav id="menu">
+    <ul class="links">
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resume.html">Resume</a></li>
+    </ul>
+  </nav>
+
+  <div id="main" class="alt">
+    <div class="inner">
+      <header class="major"><h1>Resume</h1></header>
+      <iframe class="resume-viewer" src="sample-resume.pdf" title="Nishan Ghimire Resume"></iframe>
+    </div>
+  </div>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
