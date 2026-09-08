@@ -11,10 +11,8 @@
 .writing-row { display:grid; grid-template-columns:20em minmax(0,1fr); gap:2.5em; align-items:center; padding:2em 0; border-bottom:solid 1px rgba(212,212,255,.12); }
 .writing-row:first-child { padding-top:0; } .writing-row:last-child { border-bottom:0; }
 .writing-preview { display:block; width:100%; aspect-ratio:1/1; overflow:hidden; border-radius:4px; background:#20253e; text-decoration:none; }
-.ip-mark { height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; border:1px solid rgba(255,255,255,.12); background:linear-gradient(135deg,rgba(111,121,255,.13),rgba(0,0,0,.08)); }
-.ip-mark span { font-size:.72em; letter-spacing:.35em; opacity:.72; margin-left:.35em; }
-.ip-mark strong { font-size:2em; letter-spacing:.08em; margin-top:.15em; }
-.ip-mark small { position:absolute; right:1.25em; bottom:1em; opacity:.35; letter-spacing:.15em; }
+.writing-preview img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .25s ease; }
+.writing-preview:hover img { transform:scale(1.025); }
 .writing-copy { align-self:center; }
 .writing-label { font-size:.75em; letter-spacing:.18em; text-transform:uppercase; opacity:.62; margin:0 0 1.1em 0; }
 .writing-copy h2 { font-size:1.65em; line-height:1.35; margin:0 0 1.15em 0; }
@@ -31,7 +29,7 @@
 <div id="main"><section id="writing-list"><div class="inner">
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/study-finds-homelessness-at-a-5-year-high-in-western-massachusetts/" target="_blank" rel="noopener" aria-label="Read Study Finds Homelessness at a 5-Year High in Western Massachusetts">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>01</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/07/homelessness-2.jpg" alt="Homeless encampment" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; RESEARCH</p>
@@ -41,7 +39,7 @@
 						</article>
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/large-corporations-promise-social-mobility-but-deliver-poverty-and-homelessness/" target="_blank" rel="noopener" aria-label="Read Large Corporations Promise Social Mobility but Deliver Poverty and Homelessness">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>02</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/06/Private-coporations-promote-poverty-and-homelessness.jpg" alt="Fast-food drive-through" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; HOUSING & POVERTY</p>
@@ -51,7 +49,7 @@
 						</article>
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/vancouver-removes-unhoused-people-through-forced-encampment-sweeps/" target="_blank" rel="noopener" aria-label="Read Vancouver Removes Unhoused People Through Forced Encampment Sweeps">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>03</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/05/Vancouver-Downtown-Eastside.jpg" alt="Vancouver Downtown Eastside" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; VANCOUVER</p>
@@ -61,7 +59,7 @@
 						</article>
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/mta-criminalizes-homelessness-with-50-fine-for-sitting-too-long/" target="_blank" rel="noopener" aria-label="Read MTA Criminalizes Homelessness with $50 Fine for Sitting Too Long">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>04</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/05/MTA-Criminalizes-Homelessness.jpg" alt="MTA subway station" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; CRIMINALIZATION</p>
@@ -71,7 +69,7 @@
 						</article>
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/childrens-books-fail-to-depict-the-reality-of-housing-and-homelessness/" target="_blank" rel="noopener" aria-label="Read Children’s Books Fail to Depict the Reality of Housing and Homelessness">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>05</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/03/Childrens-books.jpg" alt="Children reading a book" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; MEDIA & HOUSING</p>
@@ -81,7 +79,7 @@
 						</article>
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/transit-agencies-find-success-mitigating-homelessness-without-police-force-report-finds/" target="_blank" rel="noopener" aria-label="Read Transit Agencies Find Success Mitigating Homelessness without Police Force, Report Finds">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>06</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/03/Policing-Transit-Agencies.jpg" alt="Transit station" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; TRANSIT & HOMELESSNESS</p>
@@ -91,7 +89,7 @@
 						</article>
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/arizona-has-the-highest-increase-in-youth-homelessness-in-the-us/" target="_blank" rel="noopener" aria-label="Read Arizona Has the Highest Increase in Youth Homelessness in the US">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>07</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/02/youth-homelessness.jpg" alt="Youth homelessness" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; YOUTH HOMELESSNESS</p>
@@ -101,7 +99,7 @@
 						</article>
 						<article class="writing-row">
 							<a class="writing-preview" href="https://invisiblepeople.tv/proposed-housing-benefit-aims-to-reduce-homelessness-in-canada/" target="_blank" rel="noopener" aria-label="Read Proposed Housing Benefit Aims to Reduce Homelessness in Canada">
-								<div class="ip-mark"><span>INVISIBLE</span><strong>PEOPLE</strong><small>08</small></div>
+								<img src="https://invisiblepeople.tv/wp-content/uploads/2023/02/Vancouver-Homelessness.jpg" alt="Tent in Vancouver" loading="lazy" />
 							</a>
 							<div class="writing-copy">
 								<p class="writing-label">Invisible People &nbsp; / &nbsp; CANADA</p>
